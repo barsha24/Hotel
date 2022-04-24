@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HotelReserSystem.Models.customers>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { customer_id=item.customer_id }) |
+                @Html.ActionLink("Details", "Details", new {  customer_id=item.customer_id}) |
+                @Html.ActionLink("Delete", "Delete", new {  customer_id=item.customer_id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

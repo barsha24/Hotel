@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HotelReserSystem.Models.rooms>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.room_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.room_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.room_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.room_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.room_status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.room_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.room_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.room_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.room_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.room_status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {room_id=item.room_id}) |
+                @Html.ActionLink("Details", "Details", new { room_id=item.room_id }) |
+                @Html.ActionLink("Delete", "Delete", new { room_id=item.room_id })
+                @Html.ActionLink("Book", "Create","Booked", new { room_id=item.room_id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

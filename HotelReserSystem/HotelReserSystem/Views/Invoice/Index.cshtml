@@ -1,0 +1,78 @@
+﻿@model IEnumerable<HotelReserSystem.Models.invoice>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.invoice_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.booking_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.days_of_stay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.per_room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.no_of_rooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_amt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.room_id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.invoice_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.days_of_stay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.per_room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.no_of_rooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_amt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.room_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  invoice_id =item.invoice_id }) |
+                @Html.ActionLink("Details", "Details", new {  invoice_id =item.invoice_id  }) |
+                @Html.ActionLink("Delete", "Delete", new {  invoice_id =item.invoice_id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
